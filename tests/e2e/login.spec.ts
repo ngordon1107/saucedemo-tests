@@ -1,5 +1,5 @@
-import PomManager from "../pages/POMManager";
-import Credentials from "../test-data/credentials";
+import PomManager from "../../pages/PomManager";
+import Credentials from "../../test-data/Credentials";
 import { test, expect } from '@playwright/test';
 
 let pm: PomManager;

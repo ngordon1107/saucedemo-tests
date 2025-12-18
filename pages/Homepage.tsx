@@ -7,11 +7,15 @@ export default class Homepage {
         this.page = page;
     }
 
-    getMainPageHeader(){
+    getMainPageHeader() {
         return this.page.locator('div.app_logo');
     }
 
-    getMenuIcon(){
+    getMenuIcon() {
         return this.page.locator('button#react-burger-menu-btn');
+    }
+
+    getCartButton() {
+        return this.page.locator
     }
 }
