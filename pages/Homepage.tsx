@@ -18,4 +18,12 @@ export default class Homepage {
     getCartButton() {
         return this.page.locator
     }
+
+    async Logout() {
+        const menu_button = this.page.locator('button#react-burger-menu-btn');
+        const logout_link = this.page.getByRole('button', { name: 'Logout' })
+
+        await menu_button.click();
+        await logout_link.click();
+    }
 }
