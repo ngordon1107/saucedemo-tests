@@ -9,11 +9,11 @@ test.describe('Homepage Tests', () => {
         pm = new PomManager(page);
         await pm.loginPage.navigate('https://www.saucedemo.com/');
         await pm.loginPage.signIn;
-    })
+    });
 
     test.afterEach(async ({ page }) => {
         await page.close();
-    })
+    });
 
     test('Logout', async () => {
         await pm.homePage.Logout(); 
