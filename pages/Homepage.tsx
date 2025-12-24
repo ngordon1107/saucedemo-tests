@@ -11,8 +11,8 @@ export default class Homepage {
         return this.page.locator('div.app_logo');
     }
 
-    getMenuIcon() {
-        return this.page.locator('button#react-burger-menu-btn');
+    getMenuButton() {
+        return this.page.getByRole('button', { name: 'Open Menu' });
     }
 
     getCartButton() {
@@ -20,10 +20,12 @@ export default class Homepage {
     }
 
     async Logout() {
-        const menu_button = this.page.locator('button#react-burger-menu-btn');
-        const logout_link = this.page.getByRole('button', { name: 'Logout' })
-
+        const menu_button = this.getMenuButton();
         await menu_button.click();
+        
+        // Wait for menu to open and logout link to be visible
+        const logout_link = this.page.getByRole('link', { name: 'Logout' });
+        await logout_link.waitFor({ state: 'visible' });
         await logout_link.click();
     }
 }

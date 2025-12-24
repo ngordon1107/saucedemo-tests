@@ -21,9 +21,9 @@ test.describe('Login Tests', {tag: '@smoke'}, () => {
         
         await pm.loginPage.signIn(username, password);
 
-        const menuIcon = pm.homePage.getMenuIcon();
+        const menuButton = pm.homePage.getMenuButton();
 
-        await expect(menuIcon).toBeVisible();
+        await expect(menuButton).toBeVisible();
     })
 
     test('Invalid Sign In', async () => {
