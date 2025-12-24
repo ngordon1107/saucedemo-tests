@@ -7,11 +7,11 @@ let pm: PomManager;
 test.describe('Login Tests', {tag: '@smoke'}, () => {
     
 
-    test.beforeEach(async ({page}) => {
+    test.beforeEach(async ({ page }) => {
         pm = new PomManager(page);
         await pm.loginPage.navigate('https://www.saucedemo.com/');
     })
-    test.afterEach(async ({page}) => {
+    test.afterEach(async ({ page }) => {
         await page.close();
     })
 
@@ -21,9 +21,9 @@ test.describe('Login Tests', {tag: '@smoke'}, () => {
         
         await pm.loginPage.signIn(username, password);
 
-        const menuIcon = pm.homePage.getMenuIcon();
+        const menuButton = pm.homePage.getMenuButton();
 
-        await expect(menuIcon).toBeVisible();
+        await expect(menuButton).toBeVisible();
     })
 
     test('Invalid Sign In', async () => {

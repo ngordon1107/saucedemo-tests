@@ -7,14 +7,28 @@ export default class Login{
         this.page = page;
     }
 
+    // Getters
+    getUsernameInput () {
+        return this.page.locator('#user-name');
+    }
+
+    getPasswordInput () {
+        return this.page.locator('#password');
+    }
+
+    getLoginButton () {
+        return this.page.getByRole('button', { name: 'Login' });
+    }
+
+    // Actions
     async navigate(url: string) {
         await this.page.goto(url);
     }
 
     async signIn(username: string, password: string){
-        await this.page.fill('#user-name', username);
-        await this.page.fill('#password', password);
-        await this.page.click('#login-button');
+        await this.getUsernameInput().fill(username);
+        await this.getPasswordInput().fill(password);
+        await this.getLoginButton().click();
     }
 
     getErrorMessage(){
