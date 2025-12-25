@@ -16,7 +16,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Run Playwright tests on official Playwright Docker image
-      uses: docker://mcr.microsoft.com/playwright:v1.44.0-jammy
+      uses: mcr.microsoft.com/playwright:v1.57.0-jammy
       with:
           args: npm exec -- playwright test
     - uses: actions/upload-artifact@v4
